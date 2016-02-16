@@ -1,10 +1,11 @@
+# Google Custom Search Engine, Images
 This is a lightweight wrapper over the Google Custom Search API to facilitate
 image searches.
 
 To use, make sure to set the following environment variables:
 
-GOOGLE_API_KEY: Your Google developer API key (a server key).
-GOOGLE_CSE_ID:  The id of the Custom Search Engine you set up in your developer
+GOOGLE\_API\_KEY: Your Google developer API key (a server key).
+GOOGLE\_CSE\_ID:  The id of the Custom Search Engine you set up in your developer
                 console.
 
 Then you may do
