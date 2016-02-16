@@ -3,8 +3,10 @@ import cPickle
 import cStringIO
 import requests
 
-api_key = "AIzaSyAYxWspMZQqgklfw7-UpGQUd8jEnkcE7Y4"
-search_engine_id = "007613294648066607900:pp6o77wztjo"
+# Get API key and search engine id from environment variables
+api_key = os.environ['GOOGLE_API_KEY']
+search_engine_id = os.environ["GOOGLE_CSE_ID"]
+
 cache_directory = "/tmp/gimage/cache"
 
 # To help alleviate the problem with a small query limit, we will cache all
