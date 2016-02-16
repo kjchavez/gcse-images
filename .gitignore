@@ -1,6 +1,10 @@
 # Private data
 keys.bash
 
+# Distribution related
+/dist/
+/*.egg-info
+
 # Generated data
 *.pyc
 *.jpeg
