@@ -8,14 +8,20 @@ To use, make sure to set the following environment variables:
 * `GOOGLE_CSE_ID`:  The id of the Custom Search Engine you set up in your developer
                 console.
 
-Then you may do
+You may add the following lines to the bottom of your `~/.bashrc` file if desired:
+```bash
+export GOOGLE_API_KEY=12345ABCDE
+export GOOGLE_CSE_ID=54321EDCBA
+```
+Then `source ~/.bashrc`.
 
+Once these variables are set, you may try:
 ```python
-import gimage
+import gcse_images as gi
 
-results = gimage.search_images('ostrich')
+results = gi.search_images('ostrich')
 for i, item in enumerate(results['items']):
-    gimage.download_and_save_image(item, 'ostrich-%03d' % i)
+    gi.download_and_save_image(item, 'ostrich-%03d' % i)
 ```
 
 This will save the first page of image results as files named ostrich-001,
