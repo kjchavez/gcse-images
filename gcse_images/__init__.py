@@ -9,6 +9,11 @@ search_engine_id = os.environ["GOOGLE_CSE_ID"]
 
 cache_directory = "/tmp/gimage/cache"
 
+
+def get_valid_filename(string):
+    return ''.join(ch for ch in string if ch.isalnum())
+
+
 # To help alleviate the problem with a small query limit, we will cache all
 # results to minimize impact while developing/testing.
 def compute_cache_key(query):
@@ -87,3 +92,19 @@ def download_and_save_image(item, filename):
     with open(filename, 'wb') as fp:
         fp.write(image.content)
 
+
+def search_and_save_first_result(queries, filetype=None, directory="./"):
+    """ Saves the first result for each query in a list of queries.
+
+    Args:
+        queries: a list of queries to issue
+        filetype: a file extensions (e.g. 'png') to use as a filter.
+        directory: a directory to save all the images to.
+    """
+    if not os.path.isdir(directory):
+        os.makedirs(directory)
+
+    for query in queries:
+        results = search_images(query, filetype=filetype)
+        filename = os.path.join(directory, get_valid_filename(query))
+        download_and_save_image(results['items'][0], filename)
